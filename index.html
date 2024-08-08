@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Places List</title>
+    <title>Visit Places Randomly</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Places List</h1>
+        <h1> Where you want to Visit</h1>
         <form id="placeForm">
-            <input type="text" id="placeInput" placeholder="Enter a place" required>
+            <input type="text" id="placeInput" placeholder="Enter a places Name One by One" required>
             <button type="submit">Add Place</button>
         </form>
-        <button id="randomButton">Random Generate</button>
+        <button id="randomButton">Check Our Destiny :</button>
         <p id="randomPlaceDisplay"></p>
         <ul id="placeList"></ul>
     </div>
+    
+    <!-- for pop up -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close" id="closePopup">&times;</span>
+            <p id="popupText"></p>
+        </div>
+    </div>
+   <!-- pop up -->
+
+   
     <script src="script.js"></script>
 </body>
 </html>

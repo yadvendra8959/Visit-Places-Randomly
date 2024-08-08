@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const placeList = document.getElementById('placeList');
     const randomButton = document.getElementById('randomButton');
     const randomPlaceDisplay = document.getElementById('randomPlaceDisplay');
+    // For POp up
+    const popup = document.getElementById('popup');
+    const popupText = document.getElementById('popupText');
+    const closePopup = document.getElementById('closePopup');
 
     // Load places from LocalStorage
     loadPlaces();
@@ -62,13 +66,44 @@ document.addEventListener('DOMContentLoaded', () => {
         if (places.length > 0) {
             const randomIndex = Math.floor(Math.random() * places.length);
             const randomPlace = places[randomIndex];
-            randomPlaceDisplay.textContent = `Random Place: ${randomPlace}`;
+
+            //  for pop up start
+            popupText.innerHTML = `We Will Go <br><br>"${randomPlace}"`;            showPopup();
+             //  for pop up end
+
+            // randomPlaceDisplay.textContent = `WE Will Go : ${randomPlace}`;
+            // randomPlaceDisplay.style.color = 'white'; 
             removePlaceFromUI(randomPlace);
             removePlaceFromStorage(randomPlace);
         } else {
-            randomPlaceDisplay.textContent = "No places available.";
+            // randomPlaceDisplay.textContent = "No places available.";
+            // randomPlaceDisplay.style.color = 'white';
+            // randomPlaceDisplay.classList.remove('fade-in'); 
+             
+            //  for pop up start
+            popupText.textContent = "Sorry! No Places Available.";
+            showPopup();
+            //  for pop up end
+
         }
     });
+
+      //  for pop up start
+
+          // Function to show the popup
+    function showPopup() {
+        popup.classList.remove('hidden');
+    }
+    // Close the popup when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target == popup) {
+            popup.classList.add('hidden');
+        }
+    });
+
+      //  for pop up end
+
+
 
     // Function to remove place from UI
     function removePlaceFromUI(place) {
